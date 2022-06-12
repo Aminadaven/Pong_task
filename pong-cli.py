@@ -21,7 +21,7 @@ if __name__ == "__main__":
             print("Please specify wait time between pings as a number")
             sys.exit(1)
         subprocess.run(f"echo PONG_TIME_MS={sys.argv[2]}>.env", shell=True)
-        docker.compose.up()
+        docker.compose.up(detach=True)
         status = "STARTED"
     elif sys.argv[1] == "pause":
         if status not in ["STARTED", "RESUMED"]:
