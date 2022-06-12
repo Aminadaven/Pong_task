@@ -2,8 +2,7 @@ services:
   server1:
     container_name: server1
     image: pong_server  # This can be omitted.
-    build:
-      dockerfile: .
+    build: .
     environment:
       - OTHER_SERVICE_ADDRESS=server2
       - PORT=8001
@@ -12,8 +11,7 @@ services:
   server2:
     container_name: server2
     image: pong_server  # This can be omitted.
-    build:
-      dockerfile: .
+    build: .
     environment:
       - OTHER_SERVICE_ADDRESS=server1
       - PORT=8002
