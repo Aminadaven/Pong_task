@@ -1,7 +1,7 @@
 Server pong exercise
 ====================
 In this exercise we will have two servers playing a pong game,
-the servers can be coded using nodejs(express) or python (FasAPI).
+the servers can be coded using nodejs(express) or **python (FasAPI)**.
 
 During the game there are two instances of the same server code running and a pong cli command line tool used to start,
 pause,resume and stop the game.
@@ -13,14 +13,14 @@ Once an instance of the server(lets call it instance1) receives a ping rest requ
   pong_time_ms milliseconds passes between each ping and the next ping is initiated by the last instance that responded to ping.
 
 ### CLI
-The game will be controlled by a cli tool (nodejs or python)
+The game will be controlled by a cli tool (nodejs or **python**)
 CLI usage:
-	node pong-cli.js <command: string> <param: number>
+	python pong-cli.py <command: string> <param: number>
 cli commands:
-node pong-cli.js start <pong_time_ms> : start the game with pong_time_ms as the interval between pongs
-node pong-cli.js pause  : pause the game, servers are still alive
-node pong-cli.js resume: resume the game from previous pause point.
-node pong-cli.js stop : stop the game (and clean all resources)
+python pong-cli.py start <pong_time_ms> : start the game with pong_time_ms as the interval between pongs
+python pong-cli.py pause  : pause the game, servers are still alive
+python pong-cli.py resume: resume the game from previous pause point.
+python pong-cli.py stop : stop the game (and clean all resources)
 
 example:
-node pong-cli.js start 1000 : start pong game with 1 second between pongs.
+python pong-cli.py start 1000 : start pong game with 1 second between pongs.
