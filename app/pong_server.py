@@ -11,16 +11,15 @@ other_service_address = os.getenv('OTHER_SERVICE_ADDRESS', 'http://www.google.co
 pong_time_ms = float(os.getenv('PONG_TIME_MS', '3000'))
 
 
-async def log_to_file(response: requests.Response):
-    with open('pong_server.log', 'a') as f:
-        f.write(f"received ping at {datetime.now()}\n")
-        f.write(f"pinged {other_service_address} after {pong_time_ms} ms.\n")
-        f.write(f"response was: {response}\n")
+async def log(response: requests.Response):
+    print(f"received pong at {datetime.now()}")
+    print(f"pinged {other_service_address} after {pong_time_ms}ms")
+    print(f"response from {other_service_address}: {response.text}")
 
 
 async def wait_and_ping_other():
     await asyncio.sleep(pong_time_ms / 1000.0)
-    log_to_file(requests.get(other_service_address + "/ping"))
+    log(requests.get(other_service_address + "/ping"))
 
 
 @app.get("/ping")
